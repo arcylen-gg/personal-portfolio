@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Mail, Phone, MapPin, Send } from 'lucide-vue-next'
+import { Mail, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-vue-next'
 import IconGithub from '~/components/icons/IconGithub.vue'
 import IconLinkedin from '~/components/icons/IconLinkedin.vue'
 
@@ -13,17 +13,40 @@ const contactInfo = [
 ]
 
 const socialLinks = [
-  {
-    icon: IconGithub,
-    label: 'GitHub',
-    href: 'https://github.com/arcylen-gg',
-  },
-  {
-    icon: IconLinkedin,
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/arcylen-gutierrez-62708a102',
-  },
+  { icon: IconGithub, label: 'GitHub', href: 'https://github.com/arcylen-gg' },
+  { icon: IconLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/arcylen-gutierrez-62708a102' },
 ]
+
+type Status = 'idle' | 'loading' | 'success' | 'error'
+
+const status = ref<Status>('idle')
+const form = ref({ name: '', email: '', message: '' })
+
+async function handleSubmit() {
+  status.value = 'loading'
+  try {
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      'bot-field': '',
+      name: form.value.name,
+      email: form.value.email,
+      message: form.value.message,
+    })
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString(),
+    })
+    status.value = res.ok ? 'success' : 'error'
+  } catch {
+    status.value = 'error'
+  }
+}
+
+function reset() {
+  form.value = { name: '', email: '', message: '' }
+  status.value = 'idle'
+}
 </script>
 
 <template>
@@ -42,122 +65,147 @@ const socialLinks = [
       <div class="grid md:grid-cols-2 gap-12">
         <!-- Left: Info + socials -->
         <RevealOnScroll :delay="100">
-        <div>
-          <p class="text-vs-muted text-base leading-relaxed mb-8">
-            I'm currently open to new opportunities. Whether you have a project in
-            mind, a question about my work, or just want to say hi — my inbox is always
-            open. I'll get back to you as soon as I can.
-          </p>
-
-          <div class="space-y-3 mb-8">
-            <component
-              :is="info.href ? 'a' : 'div'"
-              v-for="info in contactInfo"
-              :key="info.label"
-              :href="info.href ?? undefined"
-              :class="[
-                'flex items-center gap-4 p-4 bg-vs-surface rounded-lg border border-vs-border transition-colors',
-                info.href
-                  ? 'hover:border-accent/40 cursor-pointer'
-                  : 'cursor-default',
-              ]"
-            >
-              <div
-                class="w-10 h-10 flex items-center justify-center rounded-md bg-accent/10 flex-shrink-0"
-              >
-                <component :is="info.icon" class="w-5 h-5 text-accent" />
-              </div>
-              <div>
-                <p class="text-vs-muted text-xs font-mono">{{ info.label }}</p>
-                <p class="text-vs-text text-sm">{{ info.value }}</p>
-              </div>
-            </component>
-          </div>
-
-          <!-- Social links -->
-          <div class="flex gap-3">
-            <a
-              v-for="social in socialLinks"
-              :key="social.label"
-              :href="social.href"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-vs-surface border border-vs-border rounded-md text-vs-muted hover:text-accent hover:border-accent/40 transition-colors text-sm"
-            >
-              <component :is="social.icon" class="w-4 h-4" />
-              {{ social.label }}
-            </a>
-          </div>
-        </div>
-        </RevealOnScroll>
-
-        <!-- Right: Netlify form -->
-        <RevealOnScroll :delay="200">
-        <div>
-          <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            class="space-y-4"
-            netlify
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <p class="hidden">
-              <label>Don't fill this out: <input name="bot-field" /></label>
+          <div>
+            <p class="text-vs-muted text-base leading-relaxed mb-8">
+              I'm currently open to new opportunities. Whether you have a project in
+              mind, a question about my work, or just want to say hi — my inbox is always
+              open. I'll get back to you as soon as I can.
             </p>
 
-            <div>
-              <label for="name" class="block text-vs-muted text-xs font-mono mb-2"
-                >name</label
+            <div class="space-y-3 mb-8">
+              <component
+                :is="info.href ? 'a' : 'div'"
+                v-for="info in contactInfo"
+                :key="info.label"
+                :href="info.href ?? undefined"
+                :class="[
+                  'flex items-center gap-4 p-4 bg-vs-surface rounded-lg border border-vs-border transition-colors',
+                  info.href ? 'hover:border-accent/40 cursor-pointer' : 'cursor-default',
+                ]"
               >
-              <input
-                id="name"
-                type="text"
-                name="name"
-                required
-                placeholder="Your name"
-                class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors"
-              />
+                <div class="w-10 h-10 flex items-center justify-center rounded-md bg-accent/10 flex-shrink-0">
+                  <component :is="info.icon" class="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p class="text-vs-muted text-xs font-mono">{{ info.label }}</p>
+                  <p class="text-vs-text text-sm">{{ info.value }}</p>
+                </div>
+              </component>
             </div>
 
-            <div>
-              <label for="email" class="block text-vs-muted text-xs font-mono mb-2"
-                >email</label
+            <!-- Social links -->
+            <div class="flex gap-3">
+              <a
+                v-for="social in socialLinks"
+                :key="social.label"
+                :href="social.href"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-vs-surface border border-vs-border rounded-md text-vs-muted hover:text-accent hover:border-accent/40 transition-colors text-sm"
               >
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                placeholder="your@email.com"
-                class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors"
-              />
+                <component :is="social.icon" class="w-4 h-4" />
+                {{ social.label }}
+              </a>
             </div>
+          </div>
+        </RevealOnScroll>
 
-            <div>
-              <label for="message" class="block text-vs-muted text-xs font-mono mb-2"
-                >message</label
-              >
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows="5"
-                placeholder="Your message..."
-                class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-md transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
+        <!-- Right: Form -->
+        <RevealOnScroll :delay="200">
+          <div>
+            <!-- Success state -->
+            <div
+              v-if="status === 'success'"
+              class="h-full flex flex-col items-center justify-center text-center py-12 bg-vs-surface border border-vs-border rounded-lg px-8"
             >
-              <Send class="w-4 h-4" />
-              Send Message
-            </button>
-          </form>
-        </div>
+              <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-5">
+                <CheckCircle class="w-8 h-8 text-green-400" />
+              </div>
+              <h3 class="text-vs-text font-semibold text-lg mb-2">Message sent!</h3>
+              <p class="text-vs-muted text-sm mb-6">Thanks for reaching out. I'll get back to you as soon as possible.</p>
+              <button
+                @click="reset"
+                class="text-accent text-sm font-mono hover:underline"
+              >
+                Send another message
+              </button>
+            </div>
+
+            <!-- Error state -->
+            <div
+              v-else-if="status === 'error'"
+              class="mb-4 flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-lg"
+            >
+              <AlertCircle class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p class="text-red-400 text-sm font-semibold">Something went wrong</p>
+                <p class="text-vs-muted text-xs mt-1">Please try again or email me directly at arcylen.gg@gmail.com</p>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form
+              v-if="status !== 'success'"
+              name="contact"
+              netlify
+              class="space-y-4"
+              @submit.prevent="handleSubmit"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Don't fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <div>
+                <label for="name" class="block text-vs-muted text-xs font-mono mb-2">name</label>
+                <input
+                  id="name"
+                  v-model="form.name"
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your name"
+                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-vs-muted text-xs font-mono mb-2">email</label>
+                <input
+                  id="email"
+                  v-model="form.email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="message" class="block text-vs-muted text-xs font-mono mb-2">message</label>
+                <textarea
+                  id="message"
+                  v-model="form.message"
+                  name="message"
+                  required
+                  rows="5"
+                  placeholder="Your message..."
+                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                :disabled="status === 'loading'"
+                class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-md transition-all duration-200 hover:shadow-lg hover:shadow-accent/20 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <Loader2 v-if="status === 'loading'" class="w-4 h-4 animate-spin" />
+                <Send v-else class="w-4 h-4" />
+                {{ status === 'loading' ? 'Sending...' : 'Send Message' }}
+              </button>
+            </form>
+          </div>
         </RevealOnScroll>
       </div>
     </div>
