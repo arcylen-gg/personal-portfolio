@@ -29,21 +29,21 @@ export const projects: Project[] = [
     description: 'Frontend ecommerce platform integrated with an existing POS system, allowing online product browsing and ordering.',
     tech: ['CodeIgniter', 'Bootstrap', 'CSS', 'jQuery'],
     url: 'http://www.palimexinc.com/',
-    featured: false,
+    featured: true,
     order: 3,
   },
   {
     title: 'Ecommerce Platform with MLM Feature',
     description: 'An ecommerce platform integrated with multilevel marketing (MLM) for selling products and earning commissions through a referral network.',
     tech: ['Laravel', 'Vue.js', 'MySQL'],
-    featured: true,
+    featured: false,
     order: 4,
   },
   {
     title: 'Online Gambling Platform Maintenance',
     description: 'Maintenance and UI improvements for Europe-based gambling websites, including frontend updates and styling enhancements.',
     tech: ['Drupal', 'JavaScript ES6', 'CSS', 'Bootstrap'],
-    featured: false,
+    featured: true,
     order: 5,
   },
   {
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     title: 'Mental Health Monitoring Platform',
     description: 'Platform for healthcare professionals to monitor patient mood, activities, and location using mobile tracking and behavioral data.',
     tech: ['Vue.js', 'OctoberCMS', 'Vuetify', 'Bootstrap', 'Chart.js'],
-    featured: true,
+    featured: false,
     order: 8,
   },
   {
@@ -78,14 +78,14 @@ export const projects: Project[] = [
     title: 'Multilingual Patient Communication Tool',
     description: 'Platform to help healthcare staff communicate with non-English speaking patients using pre-translated phrases.',
     tech: ['Vue.js', 'WinterCMS', 'Vuetify'],
-    featured: false,
+    featured: true,
     order: 10,
   },
   {
     title: 'Crypto Platform Account Management Tool',
     description: 'Frontend tool for users to manage their accounts and interact with services in a cryptocurrency platform.',
     tech: ['React.js', 'Bootstrap'],
-    featured: false,
+    featured: true,
     order: 11,
   },
   {
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     title: 'Chicken Farm Monitoring Portal',
     description: 'Portal for monitoring operations and production data for a poultry farm business.',
     tech: ['Next.js', 'WinterCMS', 'TailwindCSS'],
-    featured: true,
+    featured: false,
     order: 19,
   },
   {
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     title: 'Custom Headless CMS',
     description: 'Custom CMS built for internal use, providing content management and API capabilities.',
     tech: ['Nuxt.js', 'Prisma', 'MySQL', 'TailwindCSS'],
-    featured: true,
+    featured: false,
     order: 24,
   },
   {
