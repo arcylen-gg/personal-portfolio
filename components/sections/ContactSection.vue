@@ -100,6 +100,7 @@ const socialLinks = [
             data-netlify="true"
             netlify-honeypot="bot-field"
             class="space-y-4"
+            netlify
           >
             <input type="hidden" name="form-name" value="contact" />
             <p class="hidden">
