@@ -1,15 +1,6 @@
 <script setup lang="ts">
-import { ExternalLink, Github, Code2 } from 'lucide-vue-next'
-
-interface Project {
-  title: string
-  description: string
-  tech: string[]
-  url?: string
-  github?: string
-  duration?: string
-  _path: string
-}
+import { ExternalLink, Code2 } from 'lucide-vue-next'
+import type { Project } from '~/data/projects'
 
 defineProps<{ project: Project }>()
 </script>
@@ -34,7 +25,7 @@ defineProps<{ project: Project }>()
           class="text-vs-muted hover:text-accent transition-colors"
           aria-label="View on GitHub"
         >
-          <Github class="w-4 h-4" />
+          <IconGithub class="w-4 h-4" />
         </a>
         <a
           v-if="project.url"
