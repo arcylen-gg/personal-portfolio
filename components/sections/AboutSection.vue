@@ -45,7 +45,7 @@ const stats = computed(() => [
         <RevealOnScroll :delay="100">
           <div>
             <p class="text-vs-text text-base md:text-lg leading-relaxed mb-5">
-              I'm a passionate Full-Stack Web Developer with over 5 years of experience
+              I'm a passionate Full-Stack Web Developer with over {{ yoe.short }} of experience
               building modern, performant web applications. My goal is to create
               innovative web-based tools that help clients succeed in online business.
             </p>
