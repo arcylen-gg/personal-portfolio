@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find c:/laragon/www/arcylen-gg -name *.png -o -name *.jpg -o -name *.svg -o -name *.ico)"
+    ]
+  }
+}
