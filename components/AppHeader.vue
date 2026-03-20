@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Menu, X } from 'lucide-vue-next'
+import { mdiMenu, mdiClose } from '@mdi/js'
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
@@ -13,16 +13,12 @@ const navLinks = [
   { label: 'Contact', href: '/#contact' },
 ]
 
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 20
-}
+const handleScroll = () => { isScrolled.value = window.scrollY > 20 }
 
 onMounted(() => window.addEventListener('scroll', handleScroll))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
-const closeMenu = () => {
-  isMenuOpen.value = false
-}
+const closeMenu = () => { isMenuOpen.value = false }
 </script>
 
 <template>
@@ -66,8 +62,7 @@ const closeMenu = () => {
         :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
         @click="isMenuOpen = !isMenuOpen"
       >
-        <X v-if="isMenuOpen" class="w-5 h-5" />
-        <Menu v-else class="w-5 h-5" />
+        <MdiIcon :path="isMenuOpen ? mdiClose : mdiMenu" :size="20" />
       </button>
     </div>
 
@@ -80,10 +75,7 @@ const closeMenu = () => {
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <div
-        v-if="isMenuOpen"
-        class="md:hidden bg-vs-sidebar border-b border-vs-border"
-      >
+      <div v-if="isMenuOpen" class="md:hidden bg-vs-sidebar border-b border-vs-border">
         <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
           <template v-for="link in navLinks" :key="link.label">
             <NuxtLink

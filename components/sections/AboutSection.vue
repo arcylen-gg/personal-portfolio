@@ -1,29 +1,13 @@
 <script setup lang="ts">
-import { MapPin, Briefcase, Calendar, GraduationCap } from 'lucide-vue-next'
+import { mdiMapMarker, mdiBriefcase, mdiCalendar, mdiSchool } from '@mdi/js'
 
 const yoe = useYOE()
 
 const stats = computed(() => [
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'Bocaue, Bulacan, Philippines',
-  },
-  {
-    icon: Briefcase,
-    label: 'Current Role',
-    value: 'Full-Stack Web Developer @ Connect OS',
-  },
-  {
-    icon: Calendar,
-    label: 'Experience',
-    value: yoe.inWebDev,
-  },
-  {
-    icon: GraduationCap,
-    label: 'Education',
-    value: 'BS Computer Science',
-  },
+  { path: mdiMapMarker,  label: 'Location',     value: 'Bocaue, Bulacan, Philippines' },
+  { path: mdiBriefcase,  label: 'Current Role',  value: 'Full-Stack Web Developer @ Connect OS' },
+  { path: mdiCalendar,   label: 'Experience',    value: yoe.inWebDev },
+  { path: mdiSchool,     label: 'Education',     value: 'BS Computer Science' },
 ])
 </script>
 
@@ -72,13 +56,9 @@ const stats = computed(() => [
             :key="stat.label"
             :delay="120 + i * 100"
           >
-            <div
-              class="flex items-center gap-4 p-4 bg-vs-surface rounded-lg border border-vs-border border-l-2 border-l-accent/40 hover:border-l-accent hover:bg-vs-sidebar transition-all duration-300 group"
-            >
-              <div
-                class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-md bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300"
-              >
-                <component :is="stat.icon" class="w-5 h-5 text-accent" />
+            <div class="flex items-center gap-4 p-4 bg-vs-surface rounded-lg border border-vs-border border-l-2 border-l-accent/40 hover:border-l-accent hover:bg-vs-sidebar transition-all duration-300 group">
+              <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-md bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300">
+                <MdiIcon :path="stat.path" :size="20" class="text-accent" />
               </div>
               <div>
                 <p class="text-vs-muted text-xs font-mono">{{ stat.label }}</p>

@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { Briefcase, Code2, Users, GraduationCap, Monitor, Zap, Link, ArrowRight } from 'lucide-vue-next'
+import {
+  mdiBriefcase, mdiCodeBraces, mdiAccountGroup, mdiSchool,
+  mdiMonitor, mdiFlash, mdiLink, mdiArrowRight,
+} from '@mdi/js'
 
 interface TimelineItem {
   id: number
@@ -7,7 +10,7 @@ interface TimelineItem {
   date: string
   content: string
   category: string
-  icon: any
+  icon: string
   relatedIds: number[]
   status: 'completed' | 'in-progress' | 'pending'
   energy: number
@@ -20,7 +23,7 @@ const timelineData: TimelineItem[] = [
     date: 'Oct 2020 — Present',
     content: 'Full-Stack Web Developer assigned to AWD Digital (Australia). Delivered WordPress & OctoberCMS sites, REST API integrations, and Figma-to-code builds. Leverage AI tools (Claude, Copilot, ChatGPT) daily to ship faster without sacrificing quality.',
     category: 'Work',
-    icon: Briefcase,
+    icon: mdiBriefcase,
     relatedIds: [2, 5],
     status: 'in-progress',
     energy: 100,
@@ -31,7 +34,7 @@ const timelineData: TimelineItem[] = [
     date: 'Feb 2020 — Sep 2020',
     content: 'Software Engineer building web solutions in Drupal and Slim Framework inside Docker. Implemented ES6 frontend logic, followed Agile sprints, and deployed to staging and production.',
     category: 'Work',
-    icon: Code2,
+    icon: mdiCodeBraces,
     relatedIds: [1, 3],
     status: 'completed',
     energy: 70,
@@ -42,7 +45,7 @@ const timelineData: TimelineItem[] = [
     date: 'Jun 2016 — Jan 2020',
     content: 'Senior Web Developer & Team Leader. Led teams, managed projects, built an Inventory + Accounting System (Laravel), and a Multi-Level Marketing platform (AngularJS + Laravel).',
     category: 'Work',
-    icon: Monitor,
+    icon: mdiMonitor,
     relatedIds: [2, 4, 5],
     status: 'completed',
     energy: 90,
@@ -53,7 +56,7 @@ const timelineData: TimelineItem[] = [
     date: 'Jan 2019 — Sep 2020',
     content: "Mentored aspiring web developers in the Programmer's Developers Group (Facebook Community), helping them navigate web development and IT career paths.",
     category: 'Volunteer',
-    icon: Users,
+    icon: mdiAccountGroup,
     relatedIds: [3],
     status: 'completed',
     energy: 60,
@@ -64,7 +67,7 @@ const timelineData: TimelineItem[] = [
     date: 'Jun 2011 — Apr 2016',
     content: 'Bachelor of Science in Computer Science at Immaculate Conception-I College of Arts and Technology. Built the foundation in algorithms, data structures, and software engineering.',
     category: 'Education',
-    icon: GraduationCap,
+    icon: mdiSchool,
     relatedIds: [3],
     status: 'completed',
     energy: 85,
@@ -95,7 +98,6 @@ function stopRotation() {
 watch(autoRotate, (val) => { val ? startRotation() : stopRotation() }, { immediate: true })
 onUnmounted(() => stopRotation())
 
-// Pre-compute all positions reactively
 const nodePositions = computed(() =>
   timelineData.map((_, index) => {
     const angle = ((index / timelineData.length) * 360 + rotationAngle.value) % 360
@@ -130,7 +132,6 @@ function toggleItem(id: number) {
     const newPulse: Record<number, boolean> = {}
     related.forEach(rid => { newPulse[rid] = true })
     pulseEffect.value = newPulse
-    // Snap rotation so the node comes to the front
     const nodeIndex = timelineData.findIndex(i => i.id === id)
     rotationAngle.value = 270 - (nodeIndex / timelineData.length) * 360
   } else {
@@ -208,8 +209,8 @@ function getItemById(id: number) {
               background: 'radial-gradient(circle, rgba(0,122,204,0.35) 0%, rgba(0,122,204,0) 70%)',
               width: `${item.energy * 0.5 + 40}px`,
               height: `${item.energy * 0.5 + 40}px`,
-              left: `-${(item.energy * 0.25)}px`,
-              top: `-${(item.energy * 0.25)}px`,
+              left: `-${item.energy * 0.25}px`,
+              top: `-${item.energy * 0.25}px`,
             }"
           />
 
@@ -224,7 +225,7 @@ function getItemById(id: number) {
                 : 'bg-black text-white border-white/40',
             ]"
           >
-            <component :is="item.icon" :size="16" />
+            <MdiIcon :path="item.icon" :size="16" />
           </div>
 
           <!-- Node label -->
@@ -260,7 +261,9 @@ function getItemById(id: number) {
                 <!-- Energy bar -->
                 <div class="mt-4 pt-3 border-t border-white/10">
                   <div class="flex justify-between items-center text-xs mb-1 text-white/60">
-                    <span class="flex items-center gap-1"><Zap :size="10" /> Energy</span>
+                    <span class="flex items-center gap-1">
+                      <MdiIcon :path="mdiFlash" :size="10" /> Energy
+                    </span>
                     <span class="font-mono">{{ item.energy }}%</span>
                   </div>
                   <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
@@ -274,7 +277,7 @@ function getItemById(id: number) {
                 <!-- Connected nodes -->
                 <div v-if="item.relatedIds.length" class="mt-4 pt-3 border-t border-white/10">
                   <div class="flex items-center gap-1 mb-2 text-white/60">
-                    <Link :size="10" />
+                    <MdiIcon :path="mdiLink" :size="10" />
                     <span class="text-xs uppercase tracking-wider font-medium">Connected</span>
                   </div>
                   <div class="flex flex-wrap gap-1">
@@ -285,7 +288,7 @@ function getItemById(id: number) {
                       @click.stop="toggleItem(relId)"
                     >
                       {{ getItemById(relId)?.title }}
-                      <ArrowRight :size="8" class="text-white/50" />
+                      <MdiIcon :path="mdiArrowRight" :size="10" class="text-white/50" />
                     </button>
                   </div>
                 </div>

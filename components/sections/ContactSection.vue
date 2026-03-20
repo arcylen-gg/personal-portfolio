@@ -1,20 +1,16 @@
 <script setup lang="ts">
-import { Mail, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-vue-next'
-import IconGithub from '~/components/icons/IconGithub.vue'
-import IconLinkedin from '~/components/icons/IconLinkedin.vue'
+import {
+  mdiEmail, mdiSend, mdiCheckCircle, mdiAlertCircle,
+  mdiLoading, mdiGithub, mdiLinkedin,
+} from '@mdi/js'
 
 const contactInfo = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'arcylen.gg@gmail.com',
-    href: 'mailto:arcylen.gg@gmail.com',
-  },
+  { path: mdiEmail, label: 'Email', value: 'arcylen.gg@gmail.com', href: 'mailto:arcylen.gg@gmail.com' },
 ]
 
 const socialLinks = [
-  { icon: IconGithub, label: 'GitHub', href: 'https://github.com/arcylen-gg' },
-  { icon: IconLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/arcylen-gutierrez-62708a102' },
+  { path: mdiGithub,   label: 'GitHub',   href: 'https://github.com/arcylen-gg' },
+  { path: mdiLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/arcylen-gutierrez-62708a102' },
 ]
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
@@ -73,24 +69,20 @@ function reset() {
             </p>
 
             <div class="space-y-3 mb-8">
-              <component
-                :is="info.href ? 'a' : 'div'"
+              <a
                 v-for="info in contactInfo"
                 :key="info.label"
-                :href="info.href ?? undefined"
-                :class="[
-                  'flex items-center gap-4 p-4 bg-vs-surface rounded-lg border border-vs-border transition-colors',
-                  info.href ? 'hover:border-accent/40 cursor-pointer' : 'cursor-default',
-                ]"
+                :href="info.href"
+                class="flex items-center gap-4 p-4 bg-vs-surface rounded-lg border border-vs-border hover:border-accent/40 cursor-pointer transition-colors"
               >
                 <div class="w-10 h-10 flex items-center justify-center rounded-md bg-accent/10 flex-shrink-0">
-                  <component :is="info.icon" class="w-5 h-5 text-accent" />
+                  <MdiIcon :path="info.path" :size="20" class="text-accent" />
                 </div>
                 <div>
                   <p class="text-vs-muted text-xs font-mono">{{ info.label }}</p>
                   <p class="text-vs-text text-sm">{{ info.value }}</p>
                 </div>
-              </component>
+              </a>
             </div>
 
             <!-- Social links -->
@@ -99,11 +91,10 @@ function reset() {
                 v-for="social in socialLinks"
                 :key="social.label"
                 :href="social.href"
-                target="_blank"
-                rel="noopener"
+                target="_blank" rel="noopener"
                 class="inline-flex items-center gap-2 px-4 py-2 bg-vs-surface border border-vs-border rounded-md text-vs-muted hover:text-accent hover:border-accent/40 transition-colors text-sm"
               >
-                <component :is="social.icon" class="w-4 h-4" />
+                <MdiIcon :path="social.path" :size="16" />
                 {{ social.label }}
               </a>
             </div>
@@ -119,14 +110,11 @@ function reset() {
               class="h-full flex flex-col items-center justify-center text-center py-12 bg-vs-surface border border-vs-border rounded-lg px-8"
             >
               <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-5">
-                <CheckCircle class="w-8 h-8 text-green-400" />
+                <MdiIcon :path="mdiCheckCircle" :size="32" class="text-green-400" />
               </div>
               <h3 class="text-vs-text font-semibold text-lg mb-2">Message sent!</h3>
               <p class="text-vs-muted text-sm mb-6">Thanks for reaching out. I'll get back to you as soon as possible.</p>
-              <button
-                @click="reset"
-                class="text-accent text-sm font-mono hover:underline"
-              >
+              <button @click="reset" class="text-accent text-sm font-mono hover:underline">
                 Send another message
               </button>
             </div>
@@ -136,7 +124,7 @@ function reset() {
               v-else-if="status === 'error'"
               class="mb-4 flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-lg"
             >
-              <AlertCircle class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+              <MdiIcon :path="mdiAlertCircle" :size="20" class="text-red-400 flex-shrink-0 mt-0.5" />
               <div>
                 <p class="text-red-400 text-sm font-semibold">Something went wrong</p>
                 <p class="text-vs-muted text-xs mt-1">Please try again or email me directly at arcylen.gg@gmail.com</p>
@@ -158,41 +146,20 @@ function reset() {
 
               <div>
                 <label for="name" class="block text-vs-muted text-xs font-mono mb-2">name</label>
-                <input
-                  id="name"
-                  v-model="form.name"
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your name"
-                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors"
-                />
+                <input id="name" v-model="form.name" type="text" name="name" required placeholder="Your name"
+                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors" />
               </div>
 
               <div>
                 <label for="email" class="block text-vs-muted text-xs font-mono mb-2">email</label>
-                <input
-                  id="email"
-                  v-model="form.email"
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="your@email.com"
-                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors"
-                />
+                <input id="email" v-model="form.email" type="email" name="email" required placeholder="your@email.com"
+                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors" />
               </div>
 
               <div>
                 <label for="message" class="block text-vs-muted text-xs font-mono mb-2">message</label>
-                <textarea
-                  id="message"
-                  v-model="form.message"
-                  name="message"
-                  required
-                  rows="5"
-                  placeholder="Your message..."
-                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors resize-none"
-                />
+                <textarea id="message" v-model="form.message" name="message" required rows="5" placeholder="Your message..."
+                  class="w-full bg-vs-surface border border-vs-border rounded-md px-4 py-3 text-vs-text text-sm placeholder:text-vs-muted/40 focus:outline-none focus:border-accent transition-colors resize-none" />
               </div>
 
               <button
@@ -200,8 +167,11 @@ function reset() {
                 :disabled="status === 'loading'"
                 class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-md transition-all duration-200 hover:shadow-lg hover:shadow-accent/20 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <Loader2 v-if="status === 'loading'" class="w-4 h-4 animate-spin" />
-                <Send v-else class="w-4 h-4" />
+                <MdiIcon
+                  :path="status === 'loading' ? mdiLoading : mdiSend"
+                  :size="16"
+                  :class="status === 'loading' ? 'animate-spin' : ''"
+                />
                 {{ status === 'loading' ? 'Sending...' : 'Send Message' }}
               </button>
             </form>
