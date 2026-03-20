@@ -4,7 +4,7 @@ import { mdiMapMarker, mdiBriefcase, mdiCalendar, mdiSchool } from '@mdi/js'
 const yoe = useYOE()
 
 const stats = computed(() => [
-  { path: mdiMapMarker,  label: 'Location',     value: 'Bocaue, Bulacan, Philippines' },
+  // { path: mdiMapMarker,  label: 'Location',     value: 'Bocaue, Bulacan, Philippines' },
   { path: mdiBriefcase,  label: 'Current Role',  value: 'Full-Stack Web Developer @ Connect OS' },
   { path: mdiCalendar,   label: 'Experience',    value: yoe.inWebDev },
   { path: mdiSchool,     label: 'Education',     value: 'BS Computer Science' },
