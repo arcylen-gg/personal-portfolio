@@ -33,7 +33,7 @@ const bentoLayout = [
 
       <!-- ── Bento grid (featured) ── -->
       <RevealOnScroll v-if="!showAll">
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-rows-3 gap-4 auto-rows-[18rem]">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-rows-3 gap-4 auto-rows-[22rem]">
 
           <!-- 0: Ecommerce POS — wide top-left -->
           <UiBentoCard
@@ -199,7 +199,7 @@ const bentoLayout = [
 
       <!-- ── Bento grid (all projects) ── -->
       <!-- Pattern [wide=2, normal=1, normal=1, wide=2] fills 3 cols per 2 rows -->
-      <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[17rem]">
+      <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[22rem]">
         <UiBentoCard
           v-for="(project, i) in projects"
           :key="project.title"
