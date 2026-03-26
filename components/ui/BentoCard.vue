@@ -140,19 +140,16 @@ const theme = computed<Theme>(() => {
       </slot>
     </div>
 
-    <!-- Content: slides up on hover -->
-    <div class="pointer-events-none z-10 flex transform-gpu flex-col gap-1.5 p-6 transition-all duration-300 group-hover:-translate-y-8 mt-auto">
-      <!-- Icon slot or auto-icon -->
+    <!-- Default content (resting state) -->
+    <div class="pointer-events-none z-10 flex flex-col gap-1.5 p-6 mt-auto transition-all duration-300 group-hover:opacity-0">
       <slot name="icon">
-        <div :class="`w-10 h-10 rounded-lg ${theme.bg} flex items-center justify-center mb-1`">
-          <svg :class="`w-10 h-10 ${theme.icon}`" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" :d="theme.iconPath" />
-          </svg>
+        <div :class="`w-9 h-9 rounded-lg ${theme.bg} flex items-center justify-center mb-1`">
+          <MdiIcon :path="theme.iconPath" :size="20" :class="theme.icon" />
         </div>
       </slot>
 
       <h3 :class="[
-        'font-semibold text-vs-text group-hover:text-accent transition-colors leading-snug',
+        'font-semibold text-vs-text leading-snug',
         size === 'wide' ? 'text-base' : 'text-sm',
       ]">
         {{ project.title }}
@@ -164,7 +161,6 @@ const theme = computed<Theme>(() => {
         {{ project.description }}
       </p>
 
-      <!-- Tech badges -->
       <div class="flex flex-wrap gap-1 mt-1">
         <span
           v-for="tech in project.tech.slice(0, size === 'wide' ? 5 : 3)"
@@ -174,22 +170,53 @@ const theme = computed<Theme>(() => {
       </div>
     </div>
 
-    <!-- CTA: slides in from bottom on hover -->
-    <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-      <a
-        v-if="project.url"
-        :href="project.url"
-        target="_blank" rel="noopener"
-        class="pointer-events-auto inline-flex items-center gap-1 text-xs text-accent hover:underline font-mono"
-      >
-        View Live <MdiIcon :path="mdiArrowRight" :size="12" />
-      </a>
-      <span v-else :class="`text-xs font-mono ${theme.icon} opacity-60`">
-        {{ project.tech[0] }} project
-      </span>
-    </div>
+    <!-- Hover overlay: full description -->
+    <div
+      class="absolute inset-0 z-20 flex flex-col p-6 bg-vs-surface/[0.97] backdrop-blur-sm
+             opacity-0 translate-y-3 pointer-events-none
+             transition-all duration-300
+             group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
+             overflow-y-auto"
+    >
+      <div :class="`w-9 h-9 rounded-lg ${theme.bg} flex items-center justify-center mb-3 flex-shrink-0`">
+        <MdiIcon :path="theme.iconPath" :size="20" :class="theme.icon" />
+      </div>
 
-    <!-- Hover overlay -->
-    <div class="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-accent/[.018]" />
+      <h3 :class="[
+        'font-semibold text-accent leading-snug mb-2 flex-shrink-0',
+        size === 'wide' ? 'text-base' : 'text-sm',
+      ]">
+        {{ project.title }}
+      </h3>
+
+      <p :class="[
+        'text-vs-muted leading-relaxed flex-shrink-0',
+        size === 'wide' ? 'text-sm' : 'text-xs',
+      ]">
+        {{ project.description }}
+      </p>
+
+      <div class="flex flex-wrap gap-1 mt-3 flex-shrink-0">
+        <span
+          v-for="tech in project.tech"
+          :key="tech"
+          class="px-1.5 py-0.5 bg-vs-sidebar text-vs-muted text-[10px] font-mono rounded border border-vs-border/50"
+        >{{ tech }}</span>
+      </div>
+
+      <div class="mt-auto pt-4 flex-shrink-0">
+        <a
+          v-if="project.url"
+          :href="project.url"
+          target="_blank" rel="noopener"
+          class="inline-flex items-center gap-1 text-xs text-accent hover:underline font-mono"
+        >
+          View Live <MdiIcon :path="mdiArrowRight" :size="12" />
+        </a>
+        <span v-else :class="`text-xs font-mono ${theme.icon} opacity-60`">
+          {{ project.tech[0] }} project
+        </span>
+      </div>
+    </div>
   </div>
 </template>
