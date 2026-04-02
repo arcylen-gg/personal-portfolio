@@ -62,8 +62,8 @@ const skillGroups = [
       <!-- Section header -->
       <RevealOnScroll>
         <div class="relative mb-16">
-          <span class="absolute right-0 -top-6 text-[110px] font-black font-mono leading-none text-vs-text/[0.04] select-none pointer-events-none">04</span>
-          <p class="font-mono text-accent text-sm mb-2">// 04. skills</p>
+          <span class="absolute right-0 -top-6 text-[110px] font-black font-mono leading-none text-vs-text/[0.04] select-none pointer-events-none">05</span>
+          <p class="font-mono text-accent text-sm mb-2">// 05. skills</p>
           <h2 class="text-3xl md:text-4xl font-bold text-vs-text">Skills & Stack</h2>
           <div class="mt-3 w-20 h-0.5 bg-gradient-to-r from-accent to-transparent rounded-full" />
         </div>
