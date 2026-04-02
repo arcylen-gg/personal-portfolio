@@ -6,7 +6,10 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
   site: {
-    url: 'https://arcylen.gg',
+    url: 'https://arcylen-gg.netlify.app',
+  },
+  sitemap: {
+    exclude: ['/blog', '/blog/**'],
   },
   colorMode: {
     classSuffix: '',
@@ -45,7 +48,7 @@ export default defineNuxtConfig({
           content:
             'Portfolio of Arcylen Gutierrez, a Full-Stack Web Developer specializing in Laravel, WordPress, Vue.js, OctoberCMS, and REST APIs.',
         },
-        { property: 'og:image', content: 'https://arcylen.gg/og-image.png' },
+        { property: 'og:image', content: 'https://arcylen-gg.netlify.app/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Arcylen Gutierrez — Full-Stack Web Developer' },
         {
@@ -53,7 +56,7 @@ export default defineNuxtConfig({
           content:
             'Portfolio of Arcylen Gutierrez, a Full-Stack Web Developer specializing in Laravel, WordPress, Vue.js, OctoberCMS, and REST APIs.',
         },
-        { name: 'twitter:image', content: 'https://arcylen.gg/og-image.png' },
+        { name: 'twitter:image', content: 'https://arcylen-gg.netlify.app/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
