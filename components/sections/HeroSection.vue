@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mdiEmail, mdiArrowDown, mdiOpenInNew, mdiGithub, mdiLinkedin } from '@mdi/js'
+import { mdiEmail, mdiArrowDown, mdiOpenInNew, mdiGithub, mdiLinkedin, mdiDownload } from '@mdi/js'
 
 const yoe = useYOE()
 
@@ -72,6 +72,14 @@ onMounted(() => {
               class="inline-flex items-center gap-2 px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-white font-semibold rounded-md transition-all duration-200"
             >
               Contact Me
+            </a>
+            <a
+              href="/arcylen-gutierrez-resume-2026.pdf"
+              download
+              class="inline-flex items-center gap-2 px-6 py-3 border border-vs-border text-vs-text hover:border-accent hover:text-accent font-semibold rounded-md transition-all duration-200"
+            >
+              <MdiIcon :path="mdiDownload" :size="16" />
+              Download Resume
             </a>
           </div>
 
