@@ -62,7 +62,7 @@ const personalProjects: PersonalProject[] = [
     tech: ['Python 3.12', 'PyQt6', 'pywin32', 'pycaw', 'cryptography (Ed25519)', 'PyInstaller', 'Inno Setup 6'],
     placeholderIcon: mdiPowerSleep,
     status: 'Production-ready · Sold commercially',
-    downloadUrl: '/snoozer/installer/Snoozer-Setup-1.0.0.exe',
+    downloadUrl: '/snoozer/installer/Snoozer-Setup-1.1.0.exe',
     downloadLabel: 'Download for Windows',
     image: '/snoozer-ai-gen.png',
     highlights: [
