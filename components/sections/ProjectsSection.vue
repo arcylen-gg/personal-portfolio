@@ -96,7 +96,7 @@ const bentoLayout = [
             </template>
           </UiBentoCard>
 
-          <!-- 2: Gambling Platform — normal -->
+          <!-- 2: iGaming Platform — normal -->
           <UiBentoCard
             :project="featuredProjects[1]"
             :class="bentoLayout[2]"
