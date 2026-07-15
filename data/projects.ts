@@ -19,7 +19,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Property Listing Portal',
-    description: 'A real estate portal similar to Lamudi where users can browse property listings and contact property owners directly.',
+    description: 'A real estate portal, similar to popular property marketplaces, where users can browse property listings and contact property owners directly.',
     tech: ['Laravel', 'Bootstrap', 'CSS', 'jQuery'],
     featured: false,
     order: 2,
@@ -40,8 +40,8 @@ export const projects: Project[] = [
     order: 4,
   },
   {
-    title: 'European iGaming Platform — Software Engineering',
-    description: 'Software engineering and ongoing maintenance for a regulated European iGaming operator. Delivered UI enhancements, JavaScript-driven interactivity, and styling refinements across a Drupal-based platform on tight release cycles — keeping the experience aligned with brand standards and compliance requirements.',
+    title: 'European iGaming Platform - Software Engineering',
+    description: 'Software engineering and ongoing maintenance for a regulated European iGaming operator. Delivered UI enhancements, JavaScript-driven interactivity, and styling refinements across a Drupal-based platform on tight release cycles, keeping the experience aligned with brand standards and compliance requirements.',
     tech: ['Drupal', 'JavaScript ES6', 'CSS', 'Bootstrap'],
     featured: true,
     order: 5,

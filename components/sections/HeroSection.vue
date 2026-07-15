@@ -119,7 +119,7 @@ onMounted(() => {
               <div class="w-3 h-3 rounded-full bg-[#ff5f57]" />
               <div class="w-3 h-3 rounded-full bg-[#ffbd2e]" />
               <div class="w-3 h-3 rounded-full bg-[#28c840]" />
-              <span class="ml-3 text-vs-muted text-xs font-mono flex-1 text-center">arcylen@portfolio — zsh</span>
+              <span class="ml-3 text-vs-muted text-xs font-mono flex-1 text-center">arcylen@portfolio - zsh</span>
             </div>
 
             <!-- Terminal body -->

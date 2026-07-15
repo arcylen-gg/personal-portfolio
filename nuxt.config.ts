@@ -42,7 +42,7 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://arcylen.gg' },
-        { property: 'og:title', content: 'Arcylen Gutierrez — Full-Stack Web Developer' },
+        { property: 'og:title', content: 'Arcylen Gutierrez | Full-Stack Web Developer' },
         {
           property: 'og:description',
           content:
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         },
         { property: 'og:image', content: 'https://arcylen-gg.netlify.app/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Arcylen Gutierrez — Full-Stack Web Developer' },
+        { name: 'twitter:title', content: 'Arcylen Gutierrez | Full-Stack Web Developer' },
         {
           name: 'twitter:description',
           content:

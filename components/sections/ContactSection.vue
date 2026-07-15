@@ -64,7 +64,7 @@ function reset() {
           <div>
             <p class="text-vs-muted text-base leading-relaxed mb-8">
               I'm currently open to new opportunities. Whether you have a project in
-              mind, a question about my work, or just want to say hi — my inbox is always
+              mind, a question about my work, or just want to say hi, my inbox is always
               open. I'll get back to you as soon as I can.
             </p>
 

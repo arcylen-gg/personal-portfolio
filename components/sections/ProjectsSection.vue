@@ -35,7 +35,7 @@ const bentoLayout = [
       <RevealOnScroll v-if="!showAll">
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-rows-3 gap-4 auto-rows-[22rem]">
 
-          <!-- 0: Ecommerce POS — wide top-left -->
+          <!-- 0: Ecommerce POS - wide top-left -->
           <UiBentoCard
             :project="featuredProjects[0]"
             :class="bentoLayout[0]"
@@ -58,7 +58,7 @@ const bentoLayout = [
             </template>
           </UiBentoCard>
 
-          <!-- 1: Industrial Safety — tall right -->
+          <!-- 1: Industrial Safety - tall right -->
           <UiBentoCard
             :project="featuredProjects[5]"
             :class="bentoLayout[1]"
@@ -96,7 +96,7 @@ const bentoLayout = [
             </template>
           </UiBentoCard>
 
-          <!-- 2: iGaming Platform — normal -->
+          <!-- 2: iGaming Platform - normal -->
           <UiBentoCard
             :project="featuredProjects[1]"
             :class="bentoLayout[2]"
@@ -116,7 +116,7 @@ const bentoLayout = [
             </template>
           </UiBentoCard>
 
-          <!-- 3: Fire Safety Audit — normal -->
+          <!-- 3: Fire Safety Audit - normal -->
           <UiBentoCard
             :project="featuredProjects[2]"
             :class="bentoLayout[3]"
@@ -139,7 +139,7 @@ const bentoLayout = [
             </template>
           </UiBentoCard>
 
-          <!-- 4: Multilingual Patient Tool — normal -->
+          <!-- 4: Multilingual Patient Tool - normal -->
           <UiBentoCard
             :project="featuredProjects[3]"
             :class="bentoLayout[4]"
@@ -168,7 +168,7 @@ const bentoLayout = [
             </template>
           </UiBentoCard>
 
-          <!-- 5: Crypto Account Tool — wide bottom-right -->
+          <!-- 5: Crypto Account Tool - wide bottom-right -->
           <UiBentoCard
             :project="featuredProjects[4]"
             :class="bentoLayout[5]"

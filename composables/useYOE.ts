@@ -1,6 +1,6 @@
 /**
  * Auto-calculates Years of Experience from June 2016 to today.
- * Call this in any component — values update based on current date at build/SSR time.
+ * Call this in any component; values update based on current date at build/SSR time.
  */
 export function useYOE() {
   const start = new Date(2016, 5, 1) // June 1 2016 (month is 0-indexed)
@@ -24,7 +24,7 @@ export function useYOE() {
     full: months > 0 ? `${years} years & ${months} months` : `${years} years`,
     /** e.g. "9+ Years in Web Development" */
     inWebDev: `${years}+ Years in Web Development`,
-    /** e.g. "9 years 9 months" — for inline prose */
+    /** e.g. "9 years 9 months", for inline prose */
     prose: months > 0 ? `${years} years ${months} months` : `${years} years`,
   }
 }

@@ -39,7 +39,7 @@ const personalProjects: PersonalProject[] = [
   {
     title: 'QuoteFlower',
     description:
-      'A multi-tenant SaaS platform that lets freelancers and small businesses create itemised quotes, convert them to invoices with one click, and accept payments online via Stripe Connect and PayPal — all with branded PDF exports, email delivery, and team collaboration.',
+      'A multi-tenant SaaS platform that lets freelancers and small businesses create itemised quotes, convert them to invoices with one click, and accept payments online via Stripe Connect and PayPal, all with branded PDF exports, email delivery, and team collaboration.',
     tech: ['Nuxt 4', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Stripe', 'PayPal'],
     url: 'https://quoteflower.app/',
     image: '/quoteflower.png',
@@ -58,7 +58,7 @@ const personalProjects: PersonalProject[] = [
   {
     title: 'Snoozer',
     description:
-      'A Windows tray utility that auto-shuts down your PC after idle inactivity — backed by a full commercial licensing system. Monitors keyboard, mouse, and audio output via the Core Audio peak meter, so active playback (calls, Spotify, games, even paused-but-unmuted tabs) keeps the timer at zero. When idle, it pops a small countdown window with a Cancel-shutdown button before issuing a forced shutdown.',
+      'A Windows tray utility that auto-shuts down your PC after idle inactivity, backed by a full commercial licensing system. Monitors keyboard, mouse, and audio output via the Core Audio peak meter, so active playback (calls, Spotify, games, even paused-but-unmuted tabs) keeps the timer at zero. When idle, it pops a small countdown window with a Cancel-shutdown button before issuing a forced shutdown.',
     tech: ['Python 3.12', 'PyQt6', 'pywin32', 'pycaw', 'cryptography (Ed25519)', 'PyInstaller', 'Inno Setup 6'],
     placeholderIcon: mdiPowerSleep,
     status: 'Production-ready · Sold commercially',
@@ -71,7 +71,7 @@ const personalProjects: PersonalProject[] = [
       '14-day trial state, paste-to-activate licensing, distributable as a signed Inno Setup installer',
     ],
     approach:
-      'Built through AI-augmented development — I owned every product decision (what counts as activity, when to require internet vs. trust local state, how to handle license revocation without bricking paying customers) and pair-programmed with an AI assistant to write the Python. Started without prior Python experience; shipped a production-ready Windows product. Along the way I debugged silent process deaths from PyQt6 garbage-collecting a wrapper object, a breaking change in the pycaw library between versions, BOM characters corrupting license keys pasted from email clients, and Windows 11 burying new tray icons in the overflow flyout.',
+      'Built through AI-augmented development. I owned every product decision (what counts as activity, when to require internet vs. trust local state, how to handle license revocation without bricking paying customers) and pair-programmed with an AI assistant to write the Python. Started without prior Python experience; shipped a production-ready Windows product. Along the way I debugged silent process deaths from PyQt6 garbage-collecting a wrapper object, a breaking change in the pycaw library between versions, BOM characters corrupting license keys pasted from email clients, and Windows 11 burying new tray icons in the overflow flyout.',
     iconBadges: [
       { path: mdiLanguagePython, color: 'text-yellow-400', bg: 'bg-yellow-500/10', title: 'Python' },
       { path: mdiMicrosoftWindows, color: 'text-sky-400', bg: 'bg-sky-500/10', title: 'Windows' },

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Blog — Arcylen Gutierrez',
+  title: 'Blog | Arcylen Gutierrez',
   description:
     'Thoughts on web development, Laravel, Vue.js, and building modern web applications.',
 })

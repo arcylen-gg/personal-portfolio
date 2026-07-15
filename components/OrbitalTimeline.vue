@@ -20,7 +20,7 @@ const timelineData: TimelineItem[] = [
   {
     id: 1,
     title: 'Connect OS / AWD Digital',
-    date: 'Oct 2020 — Present',
+    date: 'Oct 2020 - Present',
     content: 'Full-Stack Web Developer assigned to AWD Digital (Australia). Delivered WordPress & OctoberCMS sites, REST API integrations, and Figma-to-code builds. Leverage AI tools (Claude, Copilot, ChatGPT) daily to ship faster without sacrificing quality.',
     category: 'Work',
     icon: mdiBriefcase,
@@ -31,7 +31,7 @@ const timelineData: TimelineItem[] = [
   {
     id: 2,
     title: 'Bayview Technologies',
-    date: 'Feb 2020 — Sep 2020',
+    date: 'Feb 2020 - Sep 2020',
     content: 'Software Engineer building web solutions in Drupal and Slim Framework inside Docker. Implemented ES6 frontend logic, followed Agile sprints, and deployed to staging and production.',
     category: 'Work',
     icon: mdiCodeBraces,
@@ -42,7 +42,7 @@ const timelineData: TimelineItem[] = [
   {
     id: 3,
     title: 'Digima Web Solutions',
-    date: 'Jun 2016 — Jan 2020',
+    date: 'Jun 2016 - Jan 2020',
     content: 'Senior Web Developer & Team Leader. Led teams, managed projects, built an Inventory + Accounting System (Laravel), and a Multi-Level Marketing platform (AngularJS + Laravel).',
     category: 'Work',
     icon: mdiMonitor,
@@ -53,7 +53,7 @@ const timelineData: TimelineItem[] = [
   {
     id: 4,
     title: 'Volunteer Mentor',
-    date: 'Jan 2019 — Sep 2020',
+    date: 'Jan 2019 - Sep 2020',
     content: "Mentored aspiring web developers in the Programmer's Developers Group (Facebook Community), helping them navigate web development and IT career paths.",
     category: 'Volunteer',
     icon: mdiAccountGroup,
@@ -64,7 +64,7 @@ const timelineData: TimelineItem[] = [
   {
     id: 5,
     title: 'BS Computer Science',
-    date: 'Jun 2011 — Apr 2016',
+    date: 'Jun 2011 - Apr 2016',
     content: 'Bachelor of Science in Computer Science at Immaculate Conception-I College of Arts and Technology. Built the foundation in algorithms, data structures, and software engineering.',
     category: 'Education',
     icon: mdiSchool,

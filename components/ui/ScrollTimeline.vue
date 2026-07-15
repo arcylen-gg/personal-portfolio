@@ -11,7 +11,7 @@ interface ExperienceEntry {
 
 const timelineData: ExperienceEntry[] = [
   {
-    title: 'Oct 2020 — Present',
+    title: 'Oct 2020 - Present',
     role: 'Full-Stack Web Developer',
     company: 'Connect OS',
     location: 'Remote · AWD Digital, Australia',
@@ -22,11 +22,11 @@ const timelineData: ExperienceEntry[] = [
       'Implemented REST API projects, coordinating directly with mobile developers',
       'Transformed XD and Figma designs into pixel-perfect, fully functional websites',
       'Owned full development lifecycle: from layout to deployment on live servers',
-      'Leverage AI tools (Claude, GitHub Copilot, ChatGPT) daily — rapid prototyping, debugging, code review, and documentation — consistently shipping faster without sacrificing quality',
+      'Leverage AI tools (Claude, GitHub Copilot, ChatGPT) daily for rapid prototyping, debugging, code review, and documentation, consistently shipping faster without sacrificing quality',
     ],
   },
   {
-    title: 'Feb 2020 — Sep 2020',
+    title: 'Feb 2020 - Sep 2020',
     role: 'Software Engineer',
     company: 'Bayview Technologies Inc.',
     location: 'Makati City',
@@ -38,7 +38,7 @@ const timelineData: ExperienceEntry[] = [
     ],
   },
   {
-    title: 'Jun 2016 — Jan 2020',
+    title: 'Jun 2016 - Jan 2020',
     role: 'Senior Web Developer',
     company: 'Digima Web Solutions Inc.',
     location: 'Pandi, Bulacan',
@@ -50,7 +50,7 @@ const timelineData: ExperienceEntry[] = [
     ],
   },
   {
-    title: 'Jan 2019 — Sep 2020',
+    title: 'Jan 2019 - Sep 2020',
     role: 'Mentor',
     company: "Programmer's Developers Group",
     location: 'Facebook Community · Volunteer',
@@ -61,7 +61,7 @@ const timelineData: ExperienceEntry[] = [
     ],
   },
   {
-    title: 'Jun 2011 — Apr 2016',
+    title: 'Jun 2011 - Apr 2016',
     role: 'Bachelor of Science in Computer Science',
     company: 'Immaculate Conception-I College of Arts and Technology',
     badge: 'Education',

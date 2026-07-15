@@ -10,7 +10,7 @@ if (!post.value) {
 }
 
 useSeoMeta({
-  title: () => `${post.value?.title} — Arcylen Gutierrez`,
+  title: () => `${post.value?.title} | Arcylen Gutierrez`,
   description: () => post.value?.description ?? '',
 })
 </script>

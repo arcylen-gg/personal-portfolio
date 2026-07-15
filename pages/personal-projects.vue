@@ -2,12 +2,12 @@
 import { mdiArrowLeft } from '@mdi/js'
 
 useSeoMeta({
-  title: 'Personal Projects — Arcylen Gutierrez',
+  title: 'Personal Projects | Arcylen Gutierrez',
   description:
-    'Side projects built by Arcylen Gutierrez — exploring SaaS, payments, and full-stack experiments end-to-end.',
-  ogTitle: 'Personal Projects — Arcylen Gutierrez',
+    'Side projects built by Arcylen Gutierrez, exploring SaaS, payments, and full-stack experiments end-to-end.',
+  ogTitle: 'Personal Projects | Arcylen Gutierrez',
   ogDescription:
-    'Side projects built by Arcylen Gutierrez — exploring SaaS, payments, and full-stack experiments end-to-end.',
+    'Side projects built by Arcylen Gutierrez, exploring SaaS, payments, and full-stack experiments end-to-end.',
 })
 </script>
 

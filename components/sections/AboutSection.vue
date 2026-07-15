@@ -36,7 +36,7 @@ const stats = computed(() => [
             <p class="text-vs-muted text-base leading-relaxed mb-5">
               Currently at
               <span class="text-accent font-medium">Connect OS</span>, I'm assigned to
-              AWD Digital in Australia, delivering tailored development solutions — from
+              AWD Digital in Australia, delivering tailored development solutions, from
               transforming Figma/XD designs into pixel-perfect websites to deploying
               full-stack applications to production servers.
             </p>

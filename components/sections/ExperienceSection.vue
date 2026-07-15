@@ -10,7 +10,7 @@ const aiPractices = [
 const education = {
   degree: 'Bachelor of Science in Computer Science',
   school: 'Immaculate Conception-I College of Arts and Technology',
-  duration: 'Jun 2011 — Apr 2016',
+  duration: 'Jun 2011 - Apr 2016',
 }
 </script>
 
@@ -47,7 +47,7 @@ const education = {
               </span>
             </div>
             <p class="text-vs-muted text-sm leading-relaxed mb-4">
-              Actively integrate AI tools into my development workflow to ship faster and smarter — not as a shortcut, but as a force multiplier.
+              Actively integrate AI tools into my development workflow to ship faster and smarter, not as a shortcut, but as a force multiplier.
             </p>
             <div class="grid sm:grid-cols-2 gap-3">
               <div
