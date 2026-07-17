@@ -27,7 +27,7 @@ export const projects: Project[] = [
   {
     title: 'Ecommerce Frontend for POS System',
     description: 'Frontend ecommerce platform integrated with an existing POS system, allowing online product browsing and ordering.',
-    tech: ['CodeIgniter', 'Bootstrap', 'CSS', 'jQuery'],
+    tech: ['Bootstrap', 'CSS', 'jQuery'],
     url: 'http://www.palimexinc.com/',
     featured: true,
     order: 3,
@@ -175,7 +175,7 @@ export const projects: Project[] = [
   {
     title: 'Custom Headless CMS',
     description: 'Custom CMS built for internal use, providing content management and API capabilities.',
-    tech: ['Nuxt.js', 'Prisma', 'MySQL', 'TailwindCSS'],
+    tech: ['Nuxt.js', 'MySQL', 'TailwindCSS'],
     featured: false,
     order: 24,
   },

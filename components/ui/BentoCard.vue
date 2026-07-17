@@ -42,7 +42,6 @@ const themeMap: Record<string, Theme> = {
   'WinterCMS':  { from: 'from-sky-900/25',    icon: 'text-sky-400',    bg: 'bg-sky-500/10',    decor: 'lines',   iconPath: mdiSnowflake },
   'Drupal':     { from: 'from-indigo-900/25', icon: 'text-indigo-400', bg: 'bg-indigo-500/10', decor: 'dots',    iconPath: mdiDrupal },
   'Nuxt.js':    { from: 'from-green-900/25',  icon: 'text-green-400',  bg: 'bg-green-500/10',  decor: 'grid',    iconPath: mdiNuxt },
-  'CodeIgniter':{ from: 'from-orange-900/25', icon: 'text-orange-400', bg: 'bg-orange-500/10', decor: 'bars',    iconPath: mdiCodeBraces },
   'REST API':   { from: 'from-violet-900/25', icon: 'text-violet-400', bg: 'bg-violet-500/10', decor: 'code',    iconPath: mdiApi },
   'GraphQL':    { from: 'from-pink-900/25',   icon: 'text-pink-400',   bg: 'bg-pink-500/10',   decor: 'circles', iconPath: mdiGraphql },
   'VtigerCRM':  { from: 'from-amber-900/25',  icon: 'text-amber-400',  bg: 'bg-amber-500/10',  decor: 'bars',    iconPath: mdiAccountBoxMultiple },

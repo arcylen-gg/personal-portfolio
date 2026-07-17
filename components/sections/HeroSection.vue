@@ -148,7 +148,6 @@ onMounted(() => {
                 <span class="text-[#4ec9b0]">React.js</span>
                 <span class="text-[#ce9178]">WordPress</span>
                 <span class="text-[#b5cea8]">MySQL</span>
-                <span class="text-[#569cd6]">Prisma</span>
                 <span class="text-[#b5cea8]">Docker</span>
                 <span class="text-[#4ec9b0]">OctoberCMS</span>
               </div>

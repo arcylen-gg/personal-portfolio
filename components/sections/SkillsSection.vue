@@ -26,7 +26,6 @@ const skillGroups = [
     skills: [
       { name: 'PHP',            icon: `${DI}/php/php-original.svg` },
       { name: 'Laravel',        icon: `${DI}/laravel/laravel-original.svg` },
-      { name: 'CodeIgniter',    icon: `${DI}/codeigniter/codeigniter-plain.svg` },
       { name: 'OctoberCMS',     icon: null },
       { name: 'WordPress',      icon: `${DI}/wordpress/wordpress-original.svg` },
       { name: 'Drupal',         icon: `${DI}/drupal/drupal-original.svg` },
@@ -38,7 +37,6 @@ const skillGroups = [
     comment: '// data layer',
     skills: [
       { name: 'MySQL',     icon: `${DI}/mysql/mysql-original.svg` },
-      { name: 'Prisma ORM', icon: `${SI}/prisma/ffffff` },
       { name: 'REST API',  icon: null },
       { name: 'AJAX',      icon: null },
     ],
